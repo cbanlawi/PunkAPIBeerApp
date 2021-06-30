@@ -1,0 +1,294 @@
+/* Resets */
+
+* {
+    /* margin: 0; */
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Custom Properties */
+  
+  :root {
+    --clr-light: #ffffff;
+    --clr-dark: #000000;
+    --clr-light-accent: #f4f4f4;
+    --clr-accent: #f4b233;
+    --clr-disabled: #dddddd;
+    --bshadow: 0 0.5rem 1rem rgba(0, 0, 16, 0.19),
+      0 0.3rem 0.3rem rgba(0, 0, 16, 0.23);
+  
+    --ff-primary: 'Montserrat', sans-serif;
+    --ff-secondary: 'Archivo Black', sans-serif;
+  }
+  
+  /* Intro Page */
+  
+  .main {
+    background-color: var(--clr-dark);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .intro {
+    font-family: var(--ff-primary);
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  a {
+    color: var(--clr-accent);
+    text-decoration: none;
+  }
+  
+  .hover-underline {
+    display: inline-block;
+    position: relative;
+    color: var(--clr-accent);
+  }
+  
+  .hover-underline:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 4px;
+    bottom: -10px;
+    left: 0;
+    background-color: var(--clr-accent);
+    transform-origin: bottom right;
+    transition: transform 1.5s ease-in-out;
+  }
+  
+  .hover-underline:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Products Page */
+  
+  .products {
+    background-color: var(--clr-light-accent);
+    font-family: var(--ff-primary);
+  }
+  
+  header {
+    padding: 2rem;
+    background-color: var(--clr-dark);
+    color: var(--clr-accent);
+    font-size: 2.25rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 2rem;
+    /* border: 1px solid red; */
+  }
+  
+  /* Filter Styles */
+  
+  .card {
+    display: flex;
+    background-color: var(--clr-light);
+    box-shadow: var(--bshadow);
+    border-radius: 5px;
+  }
+  
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
+    gap: 1rem;
+    margin-bottom: 1rem;
+    /* border: 1px solid blue; */
+    justify-content: center;
+  }
+  
+  .filter-card {
+    display: flex;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+  
+  .filter-container {
+    padding: 0.4rem;
+  }
+  
+  .filter-text p {
+    color: var(--clr-dark);
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .filter {
+    padding: 0.25;
+  }
+  
+  .filter:hover,
+  .filter:focus {
+    background-color: var(--clr-light);
+    transition: background-color 0.25s ease-in;
+  }
+  
+  .filter-form {
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .filter-all + span {
+    font-size: 1.5rem;
+    padding: .75rem 0.75rem 0 0.75rem;
+  }
+  
+  svg {
+    height: 2rem;
+    width: 2rem;
+    margin: .75rem 0.75rem 0 0.75rem;
+    fill: white;
+  }
+  
+  svg:hover,
+  svg:focus {
+    fill: var(--clr-accent);
+  }
+  
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  
+  input + span,
+  input + svg {
+    cursor: pointer;
+  }
+  
+  .filter-all:hover,
+  .filter-all:checked + span,
+  .filter-all:focus + span {
+    color: var(--clr-accent);
+    font-weight: bold;
+    transition: color .3s ease;
+  }
+  
+  .beer:hover,
+  .beer:checked + svg,
+  .beer:focus + svg {
+    fill: var(--clr-accent);
+    transition: fill .3s ease;
+  }
+  
+  .hops {
+    fill: black;
+  }
+  
+  .hops:hover,
+  .hops:checked + svg,
+  .hops:focus + svg {
+    fill: var(--clr-accent);
+    transition: fill .3s ease;
+  }
+  
+  .page-btn {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+    padding: .75rem 0.75rem 0 0.75rem;
+    color: var(--clr-accent);
+    cursor: pointer;
+    transition: color .3s ease;
+  }
+  
+  .page-btn:hover {
+    color: var(--clr-dark);
+  }
+  
+  .page-btn:disabled {
+    cursor: default;
+    color: var(--clr-disabled);
+  }
+  
+  /* Beer Card Styles */
+  
+  .beers {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .beer-wrapper {
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+  }
+  
+  .beers .beer {
+    display: grid;
+    grid-auto-columns: 1fr;
+    align-items: end;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .beer .beer__img {
+    margin: auto;
+    height: 20rem;
+  }
+  
+  .beer h3 {
+    color: var(--clr-accent);
+  }
+  
+  .beer .beer__info {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .beer__content {
+    position: absolute;
+    padding: 1.25rem;
+    width: 100%;
+    height: 100%;
+    background: var(--clr-light);
+    overflow: auto;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .8s ease;
+  }
+  
+  .beer__content:hover {
+    opacity: 0.93;
+  }
+  
+  .beer__name {
+    margin: 0 auto .5rem auto;
+    font-family: var(--ff-secondary);
+    font-size: 1.25rem;
+    line-height: 1em;
+    color: var(--clr-accent);
+  }
+  
+  .beer__tagline {
+    padding-bottom: .5rem;
+    font-family: var(--ff-secondary);
+    font-style: italic;
+    border-bottom: 2px solid var(--clr-accent);
+  }
+  
+  .beer__description {
+    margin: 1rem 0;
+    font-size: .85rem;
+    line-height: 1.25rem;
+  }
+  
+  .beer__food-pairing {
+    font-style: italic;
+    font-size: .85rem;
+    line-height: 1.25em;
+  }
